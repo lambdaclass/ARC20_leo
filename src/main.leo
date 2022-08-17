@@ -27,28 +27,20 @@ function mint(owner: address, amount: u64, totalsupply: u64, gates:u64, balance:
 }
 
 
-
 @program
-function transferfrom(balance: Balance, from:address, to: address, amount: u64) -> (Balance, Balance) {
-
-    // Checks the given token record has sufficient balance.
-    // This `sub` operation is safe, and the proof will fail
-    // if an overflow occurs.
-    // `difference` holds the change amount to be returned to sender.
-    let difference: u64 = balance.amount - amount;
-
-    // Produce a token record with the change amount for the sender.
+function transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> (Balance, Balance) {
+    let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
-        owner: balance.owner,
-        gates: balance.gates,
+        owner: from,
+        gates: from_balance.gates,
         amount: difference,
     };
 
-    // Produce a token record for the specified receiver.
+	let increment: u64 = to_balance.amount + amount;
     let transferred: Balance = Balance {
         owner: to,
-        gates: 0u64,
-        amount: amount,
+        gates: to_balance.gates,
+        amount: increment,
     };
 
     // Output the sender's change record and the receiver's record.
@@ -57,36 +49,43 @@ function transferfrom(balance: Balance, from:address, to: address, amount: u64) 
 
 
 @program
-function transfer(balance: Balance, to: address, amount: u64) -> Balance {
-
-    // Checks the given token record has sufficient balance.
-    // This `sub` operation is safe, and the proof will fail
-    // if an overflow occurs.
-    // `difference` holds the change amount to be returned to sender.
-    //let difference: u64 = balance.amount - amount;
-
-    // Produce a token record with the change amount for the sender.
-    //let remaining: Balance = Balance {
-    //    owner: balance.owner,
-    //    gates: balance.gates,
-    //    amount: difference,
-    //};
-
-    // Produce a token record for the specified receiver.
+function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
+	let increment_amount: u64 = to_balance.amount + amount;
     let transferred: Balance = Balance {
         owner: to,
-        gates: 0u64,
-        amount: amount,
-		// How can I increase the amount ???
+        gates: to_balance.gates,
+        amount: increment_amount,
     };
-
-    // Output the sender's change record and the receiver's record.
     return  transferred;
 }
 
+@program
+//The allowance() function returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
+//This function must returns uint256 remaining, but for 'test' the amount is a parameter.
+function allowance(owner: address, spender: address, balance_owner: Balance, amount_desired : u64 )-> u64 {
+    // return 1 if the amount is valid and 0 otherwise
+	let response:u64 = 1u64;	
+	//let amount_owner: u64 = balance_owner.amount;
+	if balance_owner.amount < amount_desired{
+		response = 0u64;
+	}
+    return response;
+}
 
-//  Approve
-//  Allowance
+@program
+function approve(spender: address, balance_spender: Balance, amount_desired : u64 )-> u64 {
+	let response:u64 = 1u64;
+    if response < 1u64 {
+	    response = 0u64;}	
+    return response;
+}
+
+//Let's assume we have user A and user B. A has 1000 tokens and want to give permission to B to spend 100 of them.
+//    A will call approve(address(B), 100)
+//    B will check how many tokens A gave him permission to use by calling allowance(address(A), address(B))
+//    B will send to his account these tokens by calling transferFrom(address(A), address(B), 100)
+
+
 
 // Name      Returns the name of the token.
 // Symbol    Returns the symbol of the token, usually a shorter version of the name.
@@ -94,12 +93,8 @@ function transfer(balance: Balance, to: address, amount: u64) -> Balance {
 
 
 @program
-function balanceof(owner: address, amountbalance:u64) -> u64 {
-	let newBalance: Balance = Balance {
-        owner: owner,
-		gates: 20u64,
-        amount: 40u64,
-    };
+function balanceof(owner: address, owner_balance: Balance) -> u64 {
+	let amountbalance: u64 = owner_balance.amount;
     return amountbalance;
 }
 
