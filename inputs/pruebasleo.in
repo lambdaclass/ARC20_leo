@@ -10,9 +10,21 @@ balance: Balance = Balance {
     _nonce: 0group,
 };
 
-[transfer]
+[transferfrom]
 balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount: u64 = 5u64;
+
+
+[transfer]
+balance: Balance = Balance {
+    owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau,
     gates: 0u64,
     amount: 25u64,
     _nonce: 0group,
@@ -20,9 +32,10 @@ balance: Balance = Balance {
 to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 amount: u64 = 5u64;
 
+
 [balanceof]
 owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 amountbalance: u64 = 5u64;
 
-[to2]
-suppliess: u64 = 153u64;
+[total_supply]
+supplies: u64 = 153u64;
