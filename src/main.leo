@@ -10,8 +10,11 @@ record Balance {
 
 @program
 function total_supply(supplies:u64) -> u64 {
-	let supplies2: u64 = supplies+supplies;
-	return supplies2;
+	let minimun: u64 = 0u64;
+	let return_supply:u64 = 0u64;    
+	if supplies > minimun{
+	      return_supply = supplies;}
+	return return_supply;
 }
 
 @program
@@ -94,8 +97,11 @@ function approve(spender: address, balance_spender: Balance, amount_desired : u6
 
 @program
 function balanceof(owner: address, owner_balance: Balance) -> u64 {
-	let amountbalance: u64 = owner_balance.amount;
-    return amountbalance;
+	let amount_balance: u64 = owner_balance.amount;
+	let minimun: u64 = 0u64;
+	let return_balance:u64 = 0u64;
+	if amount_balance > minimun{
+		return_balance = amount_balance;
+	}
+    return return_balance;
 }
-
-
