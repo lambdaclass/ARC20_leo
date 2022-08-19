@@ -1,5 +1,11 @@
+// ERC20.
 
-// The `balance` record datatype.
+record Totalsupply {
+    owner: address,
+    gates: u64,
+    amount: u64,
+}
+
 record Balance {
     // The balance owner.
     owner: address,
@@ -8,18 +14,18 @@ record Balance {
     amount: u64,
 }
 
+
 @program
-function total_supply(supplies:u64) -> u64 {
-	let minimun: u64 = 0u64;
-	let return_supply:u64 = 0u64;    
-	if supplies > minimun{
-	      return_supply = supplies;}
+function total_supply(supply: Totalsupply) -> u64 {
+	let zero: u64 = 0u64;
+	let return_supply:u64 = supply.amount;    
+	return_supply = return_supply + zero;
 	return return_supply;
 }
 
 @program
-function mint(owner: address, amount: u64, totalsupply: u64, gates:u64, balance:Balance) -> (Balance, u64) {
-    let newtotalsupply: u64 = (totalsupply + amount );
+function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, balance:Balance) -> (Balance, u64) {
+    let newtotalsupply: u64 = (totalsupply_amount + amount );
 	let increment: u64 = balance.amount + amount;
 	let newBalance: Balance = Balance {
         owner: owner,
@@ -28,7 +34,6 @@ function mint(owner: address, amount: u64, totalsupply: u64, gates:u64, balance:
     };
     return (newBalance, newtotalsupply);
 }
-
 
 @program
 function transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> (Balance, Balance) {
@@ -49,7 +54,6 @@ function transferfrom(from_balance: Balance, to_balance: Balance, from:address, 
     // Output the sender's change record and the receiver's record.
     return (remaining, transferred);
 }
-
 
 @program
 function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
@@ -96,7 +100,7 @@ function approve(spender: address, balance_spender: Balance, amount_desired : u6
 
 
 @program
-function balanceof(owner: address, owner_balance: Balance) -> u64 {
+function balanceof(owner_balance: Balance) -> u64 {
 	let amount_balance: u64 = owner_balance.amount;
 	let minimun: u64 = 0u64;
 	let return_balance:u64 = 0u64;
