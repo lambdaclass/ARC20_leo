@@ -1,0 +1,79 @@
+[total_supply]
+supply: Totalsupply = Totalsupply {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 100u64,
+    _nonce: 0group,
+};
+
+[mint]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount: u64 = 100u64;
+totalsupply_amount: u64 = 500u64;
+gates: u64 = 0u64;
+balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 0u64,
+    _nonce: 0group,
+};
+
+[transferfrom]
+from_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+to_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 30u64,
+    _nonce: 0group,
+};
+from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount: u64 = 5u64;
+
+
+[transfer]
+to_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount: u64 = 5u64;
+
+
+[balanceof]
+owner_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 269u64,
+    _nonce: 0group,
+};
+
+
+[allowance]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+balance_owner: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+amount_desired: u64 = 78u64;
+
+
+[approve]
+spender: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+balance_owner: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+amount_desired: u64 = 78u64;
