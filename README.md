@@ -1,5 +1,5 @@
-# erc20_leo
-Smart contracts that want to use ERC20 tokens have to follow the appropriate ERC standards.
+# ARC20_leo
+
 ##  About The Project
 Implement the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
