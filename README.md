@@ -15,7 +15,7 @@ To run *Approve* function:
 
 `leo run Approve`
 
-To run *BalanceOfy* function:
+To run *BalanceOf* function:
 
 `leo run BalanceOfy`
 
