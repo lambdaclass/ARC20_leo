@@ -19,11 +19,11 @@ To run *BalanceOfy* function:
 
 `leo run BalanceOfy`
 
-To run *TransferFromy* function:
+To run *TransferFrom* function:
 
 `leo run TransferFrom`
 
-To run *Transfery* function:
+To run *Transfer* function:
 
 `leo run Transfer`
 
