@@ -1,9 +1,8 @@
 # erc20_leo
 Smart contracts that want to use ERC20 tokens have to follow the appropriate ERC standards.
-##  goal 
+##  About The Project
 Implement the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
-They are: TotalSupply, Approve, BalanceOf, TransferFrom, Transfer, Allowance.
-A .leo program contains the functions mentioned above and an input file simulates the test values.
+They are: **TotalSupply**, **Approve**, **BalanceOf**, **TransferFrom**, **Transfer**, **Allowance**.
 
 ## Usage
 
