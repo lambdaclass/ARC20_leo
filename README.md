@@ -7,10 +7,29 @@ They are: **TotalSupply**, **Approve**, **BalanceOf**, **TransferFrom**, **Trans
 
 ## Usage
 
-To run total_supply function:
+To run *total_supply* function:
 
 `leo run total_supply`
 
+To run *Approve* function:
+
+`leo run Approve`
+
+To run *BalanceOfy* function:
+
+`leo run BalanceOfy`
+
+To run *TransferFromy* function:
+
+`leo run TransferFrom`
+
+To run *Transfery* function:
+
+`leo run Transfer`
+
+To run *Allowance* function:
+
+`leo run Allowance`
 
 To run tests:
 
