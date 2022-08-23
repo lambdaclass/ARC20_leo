@@ -1,4 +1,4 @@
-// ERC20.
+// ARC20.
 
 record Totalsupply {
     owner: address,
@@ -104,7 +104,7 @@ function balanceof(owner_balance: Balance) -> u64 {
 	let amount_balance: u64 = owner_balance.amount;
 	let minimun: u64 = 0u64;
 	let return_balance:u64 = 0u64;
-	if amount_balance > minimun{
+	if amount_balance >= minimun{
 		return_balance = amount_balance;
 	}
     return return_balance;
