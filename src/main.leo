@@ -59,7 +59,7 @@ function transferfrom(from_balance: Balance, to_balance: Balance, from:address, 
 }
 
 @program
-function test_transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> bool {
+function test_transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
 
     let difference: u64 = from_balance.amount - amount;
 
@@ -68,6 +68,7 @@ function test_transferfrom(from_balance: Balance, to_balance: Balance, from:addr
         gates: 0u64,
         amount: 20u64,
     };
+	
     let test_transferred: Balance = Balance {
         owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau,
         gates: 0u64,
@@ -80,22 +81,59 @@ function test_transferfrom(from_balance: Balance, to_balance: Balance, from:addr
         amount: difference,
     };
 
-	let increment: u64 = to_balance.amount + amount;
+	let increment: u64 = to_amount + amount;
     let transferred: Balance = Balance {
-        owner: to,
-        gates: to_balance.gates,
+        owner: to_address,
+        gates: to_gates,
         amount: increment,
     };
 
-	let test_address_from: bool = false;
+	//remaining ( from );
+	let test_owner_from: bool = false;	
 	let test_gates_from: bool = false;
 	let test_amount_from: bool = false;
+
+	//transferred ( to );
+	let test_owner_to: bool = false;
+	let test_gates_to: bool = false;
+	let test_amount_to: bool = false;	
 	
-    return remaining == Balance {
-        owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
-        gates: 0u64,
-        amount: 20u64,
-    };
+	//remaining ( from ); 
+	if  test_remaining.owner == remaining.owner{
+			test_owner_from = true;
+			}
+	if  test_remaining.gates == remaining.gates{
+			test_gates_from = true;
+			}
+	if  test_remaining.amount == remaining.amount{
+			test_amount_from = true;
+			}
+			
+	let test_remaining_final: bool = false;		
+	if test_owner_from == test_gates_from {
+		if test_amount_from == true{
+		     test_remaining_final = true;}
+	}
+			
+	//transferred ( to );
+	if  test_transferred.owner == transferred.owner{
+			test_owner_to = true;
+			}
+	if  test_transferred.gates == transferred.gates{
+			test_gates_to = true;
+			}
+	if  test_transferred.amount == transferred.amount{
+			test_amount_to = true;
+			}
+	let test_transferred_final: bool = false;		
+	if test_owner_to == test_gates_to {
+		if test_amount_to == true{
+		     test_transferred_final = true;}
+	}	
+	
+	
+
+	return test_transferred_final == test_remaining_final;
 	
 	
 }
