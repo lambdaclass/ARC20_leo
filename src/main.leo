@@ -14,7 +14,7 @@ record Balance {
     amount: u64,
 }
 
-
+/*
 @program
 function total_supply(supply: Totalsupply) -> u64 {
 	let zero: u64 = 0u64;
@@ -23,17 +23,20 @@ function total_supply(supply: Totalsupply) -> u64 {
 	return return_supply;
 }
 
+
 @program
-function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, balance:Balance) -> (Balance, u64) {
-    let newtotalsupply: u64 = (totalsupply_amount + amount );
-	let increment: u64 = balance.amount + amount;
-	let newBalance: Balance = Balance {
-        owner: owner,
-		gates: gates,
-        amount: increment,
-    };
-    return (newBalance, newtotalsupply);
+function test_total_supply(supply: Totalsupply) -> bool {
+    let test_amount_supply:u64 = 100u64;
+	let zero: u64 = 0u64;
+	let return_supply:u64 = supply.amount;    
+	return_supply = return_supply + zero;
+
+    //console.assert(return_supply == test_amount_supply);
+    return return_supply == test_amount_supply;
 }
+
+
+*/
 
 @program
 function transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> (Balance, Balance) {
@@ -54,6 +57,51 @@ function transferfrom(from_balance: Balance, to_balance: Balance, from:address, 
     // Output the sender's change record and the receiver's record.
     return (remaining, transferred);
 }
+
+@program
+function test_transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> bool {
+
+    let difference: u64 = from_balance.amount - amount;
+
+    let test_remaining: Balance = Balance {
+        owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+        gates: 0u64,
+        amount: 20u64,
+    };
+    let test_transferred: Balance = Balance {
+        owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau,
+        gates: 0u64,
+        amount: 35u64,
+    };
+
+    let remaining: Balance = Balance {
+        owner: from,
+        gates: from_balance.gates,
+        amount: difference,
+    };
+
+	let increment: u64 = to_balance.amount + amount;
+    let transferred: Balance = Balance {
+        owner: to,
+        gates: to_balance.gates,
+        amount: increment,
+    };
+
+	let test_address_from: bool = false;
+	let test_gates_from: bool = false;
+	let test_amount_from: bool = false;
+	
+    return remaining == Balance {
+        owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+        gates: 0u64,
+        amount: 20u64,
+    };
+	
+	
+}
+
+
+/*
 
 @program
 function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
@@ -109,3 +157,23 @@ function balanceof(owner_balance: Balance) -> u64 {
 	}
     return return_balance;
 }
+
+
+
+
+@program
+function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, balance:Balance) -> (Balance, u64) {
+    let newtotalsupply: u64 = (totalsupply_amount + amount );
+	let increment: u64 = balance.amount + amount;
+	let newBalance: Balance = Balance {
+        owner: owner,
+		gates: gates,
+        amount: increment,
+    };
+    return (newBalance, newtotalsupply);
+}
+
+
+
+
+*/
