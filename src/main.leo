@@ -39,7 +39,7 @@ function test_total_supply(supply: Totalsupply) -> bool {
 */
 
 @program
-function transferfrom(from_balance: Balance, to_balance: Balance, from:address, to: address, amount: u64) -> (Balance, Balance) {
+function transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> (Balance, address, u64, u64) {
     let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
         owner: from,
@@ -47,17 +47,20 @@ function transferfrom(from_balance: Balance, to_balance: Balance, from:address, 
         amount: difference,
     };
 
-	let increment: u64 = to_balance.amount + amount;
-    let transferred: Balance = Balance {
-        owner: to,
-        gates: to_balance.gates,
-        amount: increment,
-    };
+	let increment: u64 = to_amount + amount;
+	
+    //let transferred: Balance = Balance {
+    //    owner: to,
+    //    gates: to_balance.gates,
+    //    amount: increment,
+    //};
 
     // Output the sender's change record and the receiver's record.
-    return (remaining, transferred);
+    return (remaining, to_address, increment, to_gates );
 }
 
+
+/*
 @program
 function test_transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
 
@@ -131,15 +134,20 @@ function test_transferfrom(from_balance: Balance, from:address, to_address: addr
 		     test_transferred_final = true;}
 	}	
 	
-	
+	let test_final:bool = false;
+	if test_transferred_final == true{
+		if test_remaining_final == true{
+			test_final = true;
+		}
+	}
 
-	return test_transferred_final == test_remaining_final;
+	return test_final;
 	
 	
 }
 
 
-/*
+
 
 @program
 function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
