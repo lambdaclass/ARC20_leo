@@ -1,7 +1,7 @@
 [project]
-name = "pruebas_leo"
+name = "ARC20"
 version = "0.1.0"
-description = "The hello-world package"
+description = "ARC20 functions"
 license = "MIT"
 
 [remote]
