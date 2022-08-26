@@ -10,11 +10,26 @@ record Balance {
 
 
 @program
+function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> u64 {
+	let response_approve:bool = false;
+	let zero: u64 = 0u64;
+	let valor: u64 = 12u64;
+	valor = valor + zero;
+	if amount_owner >= amount_desired {
+		response_approve = true;
+	}
+	return valor;
+    //return response_approve;
+}
+
+/*
+
+@program
 //The allowance() function returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
 //This function must returns uint256 remaining, but for 'test' the amount is a parameter.
 function allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> u64 {
     // return 1 if the amount is valid and 0 otherwise
-	let response:u64 = 1u64;	
+	let response:u64 = 0u64;	
 	//let amount_owner: u64 = balance_owner.amount;
 	if amount_remaining < balance_owner.amount {
 		response = amount_remaining;
@@ -22,23 +37,22 @@ function allowance(owner: address, spender: address, balance_owner: Balance, amo
     return response;
 }
 
-/*
 @program
-function test_allowance(owner: address, spender: address, balance_owner: Balance, amount_desired : u64 )-> bool {
+function test_allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> bool {
     // return 1 if the amount is valid and 0 otherwise
-	let response:u64 = 1u64;	
-	//let amount_owner: u64 = balance_owner.amount;
-	if balance_owner.amount < amount_desired{
-		response = 0u64;
+	let response:u64 = 0u64;	
+	if amount_remaining < balance_owner.amount {
+		response = amount_remaining;
 	}
 	
+	// Test	
 	let test_allowance_bool: bool = false;
-	if test_allowance_bool == 250{
+	let test_response:u64 = 78u64;
+	if test_response == response {
 		test_allowance_bool = true;
 	}
 	return test_allowance_bool;
-	
-    return response;
+
 }
 
 @program
@@ -249,13 +263,6 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 }
 
 
-@program
-function approve(spender: address, balance_spender: Balance, amount_desired : u64 )-> u64 {
-	let response:u64 = 1u64;
-    if response < 1u64 {
-	    response = 0u64;}	
-    return response;
-}
 
 //Let's assume we have user A and user B. A has 1000 tokens and want to give permission to B to spend 100 of them.
 //    A will call approve(address(B), 100)
@@ -276,6 +283,5 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
     };
     return (newBalance, newtotalsupply);
 }
-
 
 */
