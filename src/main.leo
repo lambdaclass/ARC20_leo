@@ -22,7 +22,24 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
     //return response_approve;
 }
 
-/*
+@program
+function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
+	let response_approve:bool = false;
+	let zero: u64 = 0u64;
+	let valor: u64 = 12u64;
+	valor = valor + zero;
+	if amount_owner >= amount_desired {
+		response_approve = true;
+	}
+	
+	// Test
+	let test_bool_approve: bool = false;
+	let approve_bool: bool = true;
+	if response_approve == approve_bool {
+		test_bool_approve = true;
+	}
+    return test_bool_approve;
+}
 
 @program
 //The allowance() function returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
@@ -283,5 +300,3 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
     };
     return (newBalance, newtotalsupply);
 }
-
-*/
