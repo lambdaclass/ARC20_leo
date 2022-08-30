@@ -1,8 +1,6 @@
 // ARC20.
 
 record Balance {
-    // The balance owner.
-
     // The Aleo balance.
 	owner: address,
 	gates: u64,
@@ -272,6 +270,7 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 
     return  test_transferred_final;
 }
+
 
 // Optional functions
 // Name      Returns the name of the token.
