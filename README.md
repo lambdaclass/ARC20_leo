@@ -37,24 +37,19 @@ Console output.
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
 [total_supply]
-supply: Totalsupply = Totalsupply {
-    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
-    gates: 0u64,
-    amount: 100u64,
-    _nonce: 0group,
-};
+amount_supply: u64 = 1729u64;
 ```
 
 `leo run total_supply`
 
 Console output.
 ```
- Executing 'arc20_leo.aleo/total_supply'...
- • Executed 'total_supply' (in 6929 ms)
+ • Executing 'arc20_leo.aleo/total_supply'...
+ • Executed 'total_supply' (in 5944 ms)
 
 ➡️  Output
 
- • 100u64
+ • 1729u64
 ```
 
 ### To run *Approve* function:
@@ -62,56 +57,47 @@ Console output.
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
 [approve]
-spender: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
-balance_owner: Balance = Balance {
-    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
-    gates: 0u64,
-    amount: 25u64,
-    _nonce: 0group,
-};
-amount_desired: u64 = 78u64;
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount_owner: u64 = 164u64;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount_desired: u64 = 64u64;
 ```
 
 `leo run Approve`
 
 Console output.
 ```
-Executing 'arc20_leo.aleo/approve'...
- • Executed 'approve' (in 11522 ms)
+ • Executing 'arc20_leo.aleo/approve'...
+ • Executed 'approve' (in 9745 ms)
 
 ➡️  Output
 
- • 1u64
+ • true
 ```
 
 ### To run *TransferFrom* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
-[transferfrom]
+[test_transferfrom]
 from_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
     amount: 25u64,
     _nonce: 0group,
 };
-to_balance: Balance = Balance {
-    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
-    gates: 0u64,
-    amount: 30u64,
-    _nonce: 0group,
-};
 from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
-to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+to_gates: u64 = 0u64;
+to_amount: u64 =  30u64;
 amount: u64 = 5u64;
-
 ```
 `leo run TransferFrom`
 
 Console output.
 ```
  • Executing 'arc20_leo.aleo/transferfrom'...
- • Executed 'transferfrom' (in 25958 ms)
+ • Executed 'transferfrom' (in 21740 ms)
 
 ➡️  Outputs
 
@@ -119,15 +105,11 @@ Console output.
   owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
   gates: 0u64.private,
   amount: 20u64.private,
-  _nonce: 7319105746718276012418590872386307094662097567319760237609466250239982975766group.public
+  _nonce: 6431287615986696097612324621785026814136142669749924915411966793544219414836group.public
 }
- • {
-  owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau.private,
-  gates: 0u64.private,
-  amount: 35u64.private,
-  _nonce: 3703638944736524862437145381727913907776853442339019267506977963828560008400group.public
-}
-
+ • aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau
+ • 35u64
+ • 0u64
 ```
 
 ### To run *Transfer* function:
@@ -141,7 +123,7 @@ to_balance: Balance = Balance {
     amount: 25u64,
     _nonce: 0group,
 };
-to: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+to: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 amount: u64 = 5u64;
 ```
 
@@ -149,17 +131,16 @@ amount: u64 = 5u64;
 
 Console output.
 ```
-
  • Executing 'arc20_leo.aleo/transfer'...
- • Executed 'transfer' (in 14049 ms)
+ • Executed 'transfer' (in 14139 ms)
 
 ➡️  Output
 
  • {
-  owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau.private,
+  owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
   gates: 0u64.private,
   amount: 30u64.private,
-  _nonce: 7052805180512559416001800196496246635472028404101328759122737033680855103535group.public
+  _nonce: 5223267181059685515422878880245687591758320347768724919987298470390181053809group.public
 }
 ```
 
@@ -175,7 +156,7 @@ balance_owner: Balance = Balance {
     amount: 250u64,
     _nonce: 0group,
 };
-amount_desired: u64 = 78u64;
+amount_remaining: u64 = 78u64;
 
 ```
 
@@ -184,14 +165,10 @@ amount_desired: u64 = 78u64;
 Console output.
 ```
  • Executing 'arc20_leo.aleo/allowance'...
- • Executed 'allowance' (in 13992 ms)
+ • Executed 'allowance' (in 16274 ms)
 
 ➡️  Output
 
- • 1u64
+ • 78u64
 ```
-
-To run tests:
-WIP
-`leo test`
 
