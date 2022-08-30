@@ -1,10 +1,10 @@
 // ARC20.
 
 record Balance {
-    // The Aleo balance.
+	// The Aleo balance.
 	owner: address,
 	gates: u64,
-    amount: u64,
+	amount: u64,
 }
 
 
@@ -14,7 +14,7 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
 	if amount_owner >= amount_desired {
 		response_approve = true;
 	}
-    return response_approve;
+	return response_approve;
 }
 
 @program
@@ -30,25 +30,25 @@ function test_approve(owner: address, amount_owner: u64, spender: address, amoun
 	if response_approve == approve_bool {
 		test_bool_approve = true;
 	}
-    return test_bool_approve;
+	return test_bool_approve;
 }
 
 @program
 //The allowance() function returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
 //This function must returns uint256 remaining, but for 'test' the amount is a parameter.
 function allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> u64 {
-    // return 1 if the amount is valid and 0 otherwise
+	// return 1 if the amount is valid and 0 otherwise
 	let response:u64 = 0u64;	
 	//let amount_owner: u64 = balance_owner.amount;
 	if amount_remaining < balance_owner.amount {
 		response = amount_remaining;
 	}
-    return response;
+	return response;
 }
 
 @program
 function test_allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> bool {
-    // return 1 if the amount is valid and 0 otherwise
+	// return 1 if the amount is valid and 0 otherwise
 	let response:u64 = 0u64;	
 	if amount_remaining < balance_owner.amount {
 		response = amount_remaining;
@@ -66,46 +66,46 @@ function test_allowance(owner: address, spender: address, balance_owner: Balance
 
 @program
 function transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> (Balance, address, u64, u64) {
-    let difference: u64 = from_balance.amount - amount;
-    let remaining: Balance = Balance {
-        owner: from,
-        gates: from_balance.gates,
-        amount: difference,
-    };
+	let difference: u64 = from_balance.amount - amount;
+	let remaining: Balance = Balance {
+		owner: from,
+		gates: from_balance.gates,
+		amount: difference,
+	};
 	let increment: u64 = to_amount + amount;
 
-    // Output the sender's change record and the receiver's record.
-    return (remaining, to_address, increment, to_gates );
+	// Output the sender's change record and the receiver's record.
+	return (remaining, to_address, increment, to_gates );
 }
 
 @program
 function test_transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
-    let difference: u64 = from_balance.amount - amount;
-    let remaining: Balance = Balance {
-        owner: from,
-        gates: from_balance.gates,
-        amount: difference,
-    };
+	let difference: u64 = from_balance.amount - amount;
+	let remaining: Balance = Balance {
+		owner: from,
+		gates: from_balance.gates,
+		amount: difference,
+	};
 	let increment: u64 = to_amount + amount;
 	
 	// Test
-    let transferred: Balance = Balance {
-        owner: to_address,
-        gates: to_gates,
-        amount: increment,
-    };
+	let transferred: Balance = Balance {
+		owner: to_address,
+		gates: to_gates,
+		amount: increment,
+	};
 
-    let test_remaining: Balance = Balance {
-        owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
-        gates: 0u64,
-        amount: 20u64,
-    };
+	let test_remaining: Balance = Balance {
+		owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+		gates: 0u64,
+		amount: 20u64,
+	};
 	
-    let test_transferred: Balance = Balance {
-        owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau,
-        gates: 0u64,
-        amount: 35u64,
-    };
+	let test_transferred: Balance = Balance {
+		owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau,
+		gates: 0u64,
+		amount: 35u64,
+	};
 
 	//remaining ( from );
 	let test_owner_from: bool = false;	
@@ -118,13 +118,13 @@ function test_transferfrom(from_balance: Balance, from:address, to_address: addr
 	let test_amount_to: bool = false;	
 	
 	//remaining ( from ); 
-	if  test_remaining.owner == remaining.owner{
+	if test_remaining.owner == remaining.owner{
 			test_owner_from = true;
 			}
-	if  test_remaining.gates == remaining.gates{
+	if test_remaining.gates == remaining.gates{
 			test_gates_from = true;
 			}
-	if  test_remaining.amount == remaining.amount{
+	if test_remaining.amount == remaining.amount{
 			test_amount_from = true;
 			}
 			
@@ -138,10 +138,10 @@ function test_transferfrom(from_balance: Balance, from:address, to_address: addr
 	}
 			
 	//transferred ( to );
-	if  test_transferred.owner == transferred.owner{
+	if test_transferred.owner == transferred.owner{
 			test_owner_to = true;
 			}
-	if  test_transferred.gates == transferred.gates{
+	if test_transferred.gates == transferred.gates{
 			test_gates_to = true;
 			}
 	if  test_transferred.amount == transferred.amount{
@@ -174,7 +174,7 @@ function balanceof(owner_balance: Balance) -> u64 {
 	if amount_balance >= minimun{
 		return_balance = amount_balance;
 	}
-    return return_balance;
+	return return_balance;
 }
 
 @program
@@ -188,7 +188,7 @@ function test_balanceof(owner_balance: Balance) -> bool {
 
 	// Test	
 	let test_balanceoff_bool: bool = false;
-    if return_balance == 269u64{
+	if return_balance == 269u64{
 		test_balanceoff_bool = true;
 	}
 	
@@ -220,22 +220,22 @@ function test_total_supply(amount_supply: u64) -> bool {
 @program
 function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
 	let increment_amount: u64 = to_balance.amount + amount;
-    let transferred: Balance = Balance {
-        owner: to,
-        gates: to_balance.gates,
-        amount: increment_amount,
-    };
-    return  transferred;
+	let transferred: Balance = Balance {
+		owner: to,
+		gates: to_balance.gates,
+		amount: increment_amount,
+	};
+	return  transferred;
 }
 
 @program
 function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 	let increment_amount: u64 = to_balance.amount + amount;
-    let transferred: Balance = Balance {
-        owner: to,
-        gates: to_balance.gates,
-        amount: increment_amount,
-    };
+	let transferred: Balance = Balance {
+		owner: to,
+		gates: to_balance.gates,
+		amount: increment_amount,
+	};
 	
 	// Test
 	let test_transferred: Balance = Balance {
@@ -249,13 +249,13 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 	let test_gates_to: bool = false;
 	let test_amount_to: bool = false;	
 	
-	if  test_transferred.owner == transferred.owner{
+	if test_transferred.owner == transferred.owner{
 			test_owner_to = true;
 			}
 	if  test_transferred.gates == transferred.gates{
 			test_gates_to = true;
 			}
-	if  test_transferred.amount == transferred.amount{
+	if test_transferred.amount == transferred.amount{
 			test_amount_to = true;
 			}
 
@@ -268,9 +268,8 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 		}
 	}
 
-    return  test_transferred_final;
+	return test_transferred_final;
 }
-
 
 // Optional functions
 // Name      Returns the name of the token.
@@ -284,12 +283,12 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 
 @program
 function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, balance:Balance) -> (Balance, u64) {
-    let newtotalsupply: u64 = (totalsupply_amount + amount );
+	let newtotalsupply: u64 = (totalsupply_amount + amount );
 	let increment: u64 = balance.amount + amount;
 	let newBalance: Balance = Balance {
-        owner: owner,
+		owner: owner,
 		gates: gates,
-        amount: increment,
-    };
-    return (newBalance, newtotalsupply);
+		amount: increment,
+	};
+	return (newBalance, newtotalsupply);
 }
