@@ -2,32 +2,26 @@
 
 record Balance {
     // The balance owner.
-    owner: address,
-	gates: u64,
+
     // The Aleo balance.
+	owner: address,
+	gates: u64,
     amount: u64,
 }
 
 
 @program
-function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> u64 {
+function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
-	let zero: u64 = 0u64;
-	let valor: u64 = 12u64;
-	valor = valor + zero;
 	if amount_owner >= amount_desired {
 		response_approve = true;
 	}
-	return valor;
-    //return response_approve;
+    return response_approve;
 }
 
 @program
 function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
-	let zero: u64 = 0u64;
-	let valor: u64 = 12u64;
-	valor = valor + zero;
 	if amount_owner >= amount_desired {
 		response_approve = true;
 	}
@@ -279,15 +273,15 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
     return  test_transferred_final;
 }
 
-
+// Optional functions
+// Name      Returns the name of the token.
+// Symbol    Returns the symbol of the token, usually a shorter version of the name.
+// Decimals  Returns the number of decimals used to get its user representation. For example, if decimals equals 2, a balance of 505 tokens should be displayed //           to a user as 5.05 (505 / 10 ** 2). Tokens usually opt for a value of 18,
 
 //Let's assume we have user A and user B. A has 1000 tokens and want to give permission to B to spend 100 of them.
 //    A will call approve(address(B), 100)
 //    B will check how many tokens A gave him permission to use by calling allowance(address(A), address(B))
 //    B will send to his account these tokens by calling transferFrom(address(A), address(B), 100)
-// Name      Returns the name of the token.
-// Symbol    Returns the symbol of the token, usually a shorter version of the name.
-// Decimals  Returns the number of decimals used to get its user representation. For example, if decimals equals 2, a balance of 505 tokens should be displayed //           to a user as 5.05 (505 / 10 ** 2). Tokens usually opt for a value of 18,
 
 @program
 function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, balance:Balance) -> (Balance, u64) {
