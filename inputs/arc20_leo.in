@@ -1,0 +1,117 @@
+[allowance]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+balance_owner: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 250u64,
+    _nonce: 0group,
+};
+amount_remaining: u64 = 78u64;
+
+[test_allowance]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+balance_owner: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 250u64,
+    _nonce: 0group,
+};
+amount_remaining: u64 = 78u64;
+
+
+[total_supply]
+amount_supply: u64 = 1729u64;
+
+[test_total_supply]
+amount_supply: u64 = 1729u64;
+
+[balanceof]
+owner_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 269u64,
+    _nonce: 0group,
+};
+
+[test_balanceof]
+owner_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 269u64,
+    _nonce: 0group,
+};
+
+[mint]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount: u64 = 100u64;
+totalsupply_amount: u64 = 500u64;
+gates: u64 = 0u64;
+balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 0u64,
+    _nonce: 0group,
+};
+
+[transferfrom]
+from_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+
+from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+to_gates: u64 = 0u64;
+to_amount: u64 =  30u64;
+amount: u64 = 5u64;
+
+
+[test_transferfrom]
+from_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+to_gates: u64 = 0u64;
+to_amount: u64 =  30u64;
+amount: u64 = 5u64;
+
+
+[transfer]
+to_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+to: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount: u64 = 5u64;
+
+[test_transfer]
+to_balance: Balance = Balance {
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
+    gates: 0u64,
+    amount: 25u64,
+    _nonce: 0group,
+};
+to: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount: u64 = 5u64;
+
+[approve]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount_owner: u64 = 164u64;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount_desired: u64 = 64u64;
+
+[test_approve]
+owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
+amount_owner: u64 = 164u64;
+spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
+amount_desired: u64 = 64u64;
