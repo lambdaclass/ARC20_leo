@@ -118,3 +118,6 @@ amount_desired: u64 = 64u64;
 
 [decimals]
 quantity_decimals: u64 = 5u64;
+
+[name]
+is_dummy: u64 = 0u64;

@@ -297,11 +297,25 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 
 */
 
+
+/*
+@program
+function name(is_dummy: u64) -> u64 {
+let cadena: string = "ABCDEFGHIJKLMNOP";
+let zero: u64 = 0u64;
+zero = zero + 10u64;
+return zero;
+}
+
+*/
+
+
 @program
 function decimals(quantity_decimals: u64) -> u64 {
 
-let cadena: string = "ABCDEFGHIJKLMNOP";
+
 console.assert(true == true);
+console.log("Root is: {}", cadena);
 
 
 // Decimals  Returns the number of decimals used to get its user representation.
