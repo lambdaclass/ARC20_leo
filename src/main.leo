@@ -299,6 +299,11 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 
 @program
 function decimals(quantity_decimals: u64) -> u64 {
+
+let cadena: string = "ABCDEFGHIJKLMNOP";
+console.assert(true == true);
+
+
 // Decimals  Returns the number of decimals used to get its user representation.
 // For example, if decimals equals 2, a balance of 505 tokens should be displayed 
 // 				to a user as 5.05 (505 / 10 ** 2). Tokens usually opt for a value of 18,
