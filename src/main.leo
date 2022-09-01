@@ -298,3 +298,4 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 */
 
 // Begin of Optional Functions
+
