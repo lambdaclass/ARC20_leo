@@ -8,7 +8,6 @@ record Balance {
 }
 
 /*
-
 @program
 function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
@@ -17,6 +16,7 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
 	}
 	return response_approve;
 }
+
 
 @program
 function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
@@ -297,32 +297,4 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 
 */
 
-
-/*
-@program
-function name(is_dummy: u64) -> u64 {
-let cadena: string = "ABCDEFGHIJKLMNOP";
-let zero: u64 = 0u64;
-zero = zero + 10u64;
-return zero;
-}
-
-*/
-
-
-@program
-function decimals(quantity_decimals: u64) -> u64 {
-
-
-console.assert(true == true);
-console.log("Root is: {}", cadena);
-
-
-// Decimals  Returns the number of decimals used to get its user representation.
-// For example, if decimals equals 2, a balance of 505 tokens should be displayed 
-// 				to a user as 5.05 (505 / 10 ** 2). Tokens usually opt for a value of 18,
-let zero: u64 = 0u64;
-let return_quantity_decimals: u64 = 0u64;
-return_quantity_decimals = quantity_decimals + zero;
-return return_quantity_decimals;
-}
+// Begin of Optional Functions
