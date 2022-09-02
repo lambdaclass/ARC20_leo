@@ -115,3 +115,6 @@ owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7
 amount_owner: u64 = 164u64;
 spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 amount_desired: u64 = 64u64;
+
+[decimals]
+quantity_decimals: u64 = 8u64;

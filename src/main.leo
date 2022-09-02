@@ -297,4 +297,12 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 
 */
 
-// Begin of Optional Functions
+@program
+function decimals(quantity_decimals: u64) -> u64 {
+// Decimals  Returns the number of decimals used to get its user representation.
+// For example, if decimals equals 2, a balance of 505 tokens should be displayed as 5.05 (505 / 10 ** 2)
+let zero: u64 = 0u64;
+let return_quantity_decimals: u64 = 0u64;
+return_quantity_decimals = quantity_decimals + zero;
+return return_quantity_decimals;
+}
