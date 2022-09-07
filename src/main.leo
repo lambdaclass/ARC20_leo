@@ -298,3 +298,34 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 */
 
 // Begin of Optional Functions
+
+@program
+function test_name(is_dummmy: u64) -> bool {
+	let letter_A: u64 = 65u64;
+	let letter_L: u64 = 76u64;
+	let letter_E: u64 = 69u64;
+	let letter_O: u64 = 79u64;
+	let zero: u64 = 0u64;
+	is_dummmy = zero + is_dummmy;
+	letter_A = letter_A + zero;
+	letter_L = letter_L + zero;
+	letter_E = letter_E + zero;
+	letter_O = letter_O + zero;
+
+	let test_letter_A: u64 = 65u64;
+	let test_letter_L: u64 = 76u64;
+	let test_letter_E: u64 = 69u64;
+	let test_letter_O: u64 = 79u64;
+
+	let test_name_bool: bool = false;
+	if test_letter_A == letter_A {
+		if test_letter_L == letter_L {
+			if test_letter_E == letter_E {
+				if test_letter_O == letter_O {	
+					test_name_bool = true;
+				}
+			}
+		}
+	}
+return test_name_bool ;	
+}
