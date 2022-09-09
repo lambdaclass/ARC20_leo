@@ -295,6 +295,7 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 }
 
 @program
+//This function tests if it is valid to return a Symbol different from "LEO", the parameter ´is_dummmy´ only exists for sintax purpose."
 function test_symbol(is_dummmy: u64) -> bool {
 	let letter_L: u64 = 76u64;
 	let letter_E: u64 = 69u64;
