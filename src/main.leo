@@ -300,6 +300,7 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 // Begin of Optional Functions
 
 @program
+//This function tests if it is valid to return a Name different from "ALEO", the parameter ´is_dummmy´ only exists for sintax purpose.
 function test_name(is_dummmy: u64) -> bool {
 	let letter_A: u64 = 65u64;
 	let letter_L: u64 = 76u64;
