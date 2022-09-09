@@ -308,6 +308,7 @@ return return_quantity_decimals;
 }
 
 @program
+//This function tests if the it is valid to return a quantity of decimals different from an specified number, the parameter ´is_dummmy´ only exists for sintax purpose.
 function test_decimals(quantity_decimals: u64) -> bool {
 let zero: u64 = 0u64;
 let return_quantity_decimals: u64 = 0u64;
