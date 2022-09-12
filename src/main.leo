@@ -7,8 +7,6 @@ record Balance {
 	amount: u64,
 }
 
-
-
 @program
 function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
@@ -17,6 +15,7 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
 	}
 	return response_approve;
 }
+
 
 @program
 function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
