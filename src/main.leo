@@ -7,7 +7,6 @@ record Balance {
 	amount: u64,
 }
 
-/*
 @program
 function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
@@ -293,7 +292,6 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 	};
 	return (newBalance, newtotalsupply);
 }
-
 
 */
 
