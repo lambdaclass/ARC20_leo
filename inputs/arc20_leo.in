@@ -118,3 +118,4 @@ amount_desired: u64 = 64u64;
 
 [test_symbol]
 is_dummmy: u64 = 0u64;
+
