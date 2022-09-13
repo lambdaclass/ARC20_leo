@@ -117,4 +117,4 @@ spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rr
 amount_desired: u64 = 64u64;
 
 [test_symbol]
-quantity_decimals: u64 = 5u64;
+is_dummmy: u64 = 0u64;
