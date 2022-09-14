@@ -172,3 +172,67 @@ Console output.
  • 78u64
 ```
 
+##  Optional functions
+ARC20 include 3 optional rules. They are: **decimals**, **name**, **symbol** 
+
+### To run *decimals* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[decimals]
+quantity_decimals: u64 = 8u64;
+```
+
+`leo run decimals`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/decimals'...
+ • Executed 'decimals' (in 4244 ms)
+
+➡️  Output
+
+ • 8u64
+```
+
+### To run *name* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[name]
+is_dummmy: u64 = 0u64;
+```
+
+`leo run name`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/name'...
+ • Executed 'name' (in 6431 ms)
+
+➡️  Outputs
+
+ • 65u64
+ • 76u64
+ • 69u64
+ • 79u64
+```
+
+### To run *symbol* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[symbol]
+is_dummmy: u64 = 0u64;
+```
+
+`leo run symbol`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/symbol'...
+ • Executed 'symbol' (in 6450 ms)
+
+➡️  Outputs
+
+ • 76u64
+ • 69u64
+ • 79u64
+```
