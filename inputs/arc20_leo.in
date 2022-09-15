@@ -116,5 +116,5 @@ amount_owner: u64 = 164u64;
 spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 amount_desired: u64 = 64u64;
 
-[decimals]
-quantity_decimals: u64 = 8u64;
+[symbol]
+is_dummmy: u64 = 0u64;
