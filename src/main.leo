@@ -310,3 +310,4 @@ function symbol(is_dummmy: u64) -> (u64,u64,u64) {
 	letter_O = letter_O + zero;
     return (letter_L, letter_E, letter_O) ;
 }
+
