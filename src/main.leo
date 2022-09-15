@@ -295,19 +295,27 @@ function mint(owner: address, amount: u64, totalsupply_amount: u64, gates:u64, b
 
 */
 
-// Begin of Optional Functions
-
 @program
-// Return four letters 'L' 'E' 'O' in ascii mode.
-function symbol(is_dummmy: u64) -> (u64,u64,u64) {
-	let letter_L: u64 = 76u64;
-	let letter_E: u64 = 69u64;
-	let letter_O: u64 = 79u64;
+// Decimals  Returns the number of decimals used to get its user representation.
+// For example, if decimals equals 2, a balance of 505 tokens should be displayed as 5.05 (505 / 10 ** 2)
+function decimals(quantity_decimals: u64) -> u64 {
 	let zero: u64 = 0u64;
-	is_dummmy = zero + is_dummmy;
-	letter_L = letter_L + zero;
-	letter_E = letter_E + zero;
-	letter_O = letter_O + zero;
-    return (letter_L, letter_E, letter_O) ;
+	let return_quantity_decimals: u64 = 0u64;
+	return_quantity_decimals = quantity_decimals + zero;
+	return return_quantity_decimals;
 }
 
+@program
+//This function tests if the it is valid to return a quantity of decimals different from an specified number.
+// The parameter `is_dummmy` only exists for sintax purpose.
+function test_decimals(quantity_decimals: u64) -> bool {
+	let zero: u64 = 0u64;
+	let return_quantity_decimals: u64 = 0u64;
+	return_quantity_decimals = quantity_decimals + zero;
+	let test_quantity_decimals: u64 = 8u64;
+	let test_decimals_bool: bool = false;
+	if test_quantity_decimals == return_quantity_decimals {
+		test_decimals_bool = true;
+	}
+	return test_decimals_bool;
+}
