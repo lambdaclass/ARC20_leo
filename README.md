@@ -1,9 +1,9 @@
 # ARC20_leo
 
 ##  About The Project
-Implement the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
+Implementation of the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
-They are: **BalanceOf**, **TotalSupply**, **Approve**, **TransferFrom**, **Transfer**, **Allowance**.
+They are: **BalanceOf**, **TotalSupply**, **Approve**, **TransferFrom**, **Transfer**, and **Allowance**.
 
 ## Usage
 
@@ -22,7 +22,7 @@ owner_balance: Balance = Balance {
 
 `leo run BalanceOf`
 
-Console output.
+Console output
 ```
  • Executing 'arc20_leo.aleo/balanceof'...
  • Executed 'balanceof' (in 11642 ms)
@@ -173,7 +173,7 @@ Console output.
 ```
 
 ##  Optional functions
-ARC20 include 3 optional rules. They are: **decimals**, **name**, **symbol** 
+ARC20 includes 3 optional rules. They are: **decimals**, **name**, and **symbol**.
 
 ### To run *decimals* function:
 Input file ARC20_leo/inputs/arc20_leo.in
