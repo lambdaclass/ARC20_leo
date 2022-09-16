@@ -3,11 +3,11 @@
 ##  About The Project
 Implementation of the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
-They are: **BalanceOf**, **TotalSupply**, **Approve**, **TransferFrom**, **Transfer**, and **Allowance**.
+They are: **balanceof**, **total_supply**, **approve**, **transferfrom**, **transfer**, and **allowance**.
 
 ## Usage
 
-### To run *BalanceOf* function:
+### To run *balanceOf* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -20,7 +20,7 @@ owner_balance: Balance = Balance {
 };
 ```
 
-`leo run BalanceOf`
+`leo run balanceOf`
 
 Console output
 ```
@@ -52,7 +52,7 @@ Console output.
  • 1729u64
 ```
 
-### To run *Approve* function:
+### To run *approve* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -63,7 +63,7 @@ spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rr
 amount_desired: u64 = 64u64;
 ```
 
-`leo run Approve`
+`leo run approve`
 
 Console output.
 ```
@@ -75,7 +75,7 @@ Console output.
  • true
 ```
 
-### To run *TransferFrom* function:
+### To run *transferfrom* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -92,7 +92,7 @@ to_gates: u64 = 0u64;
 to_amount: u64 =  30u64;
 amount: u64 = 5u64;
 ```
-`leo run TransferFrom`
+`leo run transferFrom`
 
 Console output.
 ```
@@ -112,7 +112,7 @@ Console output.
  • 0u64
 ```
 
-### To run *Transfer* function:
+### To run *transfer* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -127,7 +127,7 @@ to: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 amount: u64 = 5u64;
 ```
 
-`leo run Transfer`
+`leo run transfer`
 
 Console output.
 ```
@@ -144,7 +144,7 @@ Console output.
 }
 ```
 
-### To run *Allowance* function:
+### To run *allowance* function:
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
 [allowance]
@@ -160,7 +160,7 @@ amount_remaining: u64 = 78u64;
 
 ```
 
-`leo run Allowance`
+`leo run allowance`
 
 Console output.
 ```
