@@ -318,5 +318,5 @@ function test_symbol(is_dummmy: u64) -> bool {
 			}
 		}
 	}
-    	return test_symbol_bool;
+  return test_symbol_bool;
 }
