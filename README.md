@@ -7,7 +7,7 @@ They are: **balanceof**, **total_supply**, **approve**, **transferfrom**, **tran
 
 ## Usage
 
-### To run *balanceOf* function:
+### To run *balanceof* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
