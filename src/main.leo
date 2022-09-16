@@ -67,7 +67,7 @@ function test_allowance(owner: address, spender: address, balance_owner: Balance
 }
 
 @program
-function transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> (Balance, address, u64, u64) {
+function transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> (Balance, address, u64, u64) {
 	let difference: u64 = from_balance.amount - amount;
 	let remaining: Balance = Balance {
 		owner: from,
@@ -81,7 +81,7 @@ function transferfrom(from_balance: Balance, from:address, to_address: address, 
 }
 
 @program
-function test_transferfrom(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
+function test_transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
 	let difference: u64 = from_balance.amount - amount;
 	let remaining: Balance = Balance {
 		owner: from,
