@@ -3,11 +3,11 @@
 ##  About The Project
 Implementation of the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
-They are: **balanceof**, **total_supply**, **approve**, **transferfrom**, **transfer**, and **allowance**.
+They are: **balance_of**, **total_supply**, **approve**, **transfer_from**, **transfer**, and **allowance**.
 
 ## Usage
 
-### To run *balanceof* function:
+### To run *balance_of* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -20,11 +20,11 @@ owner_balance: Balance = Balance {
 };
 ```
 
-`leo run balanceOf`
+`leo run balance_of`
 
 Console output
 ```
- • Executing 'arc20_leo.aleo/balanceof'...
+ • Executing 'arc20_leo.aleo/balance_of'...
  • Executed 'balanceof' (in 11642 ms)
 
 ➡️  Output
@@ -75,7 +75,7 @@ Console output.
  • true
 ```
 
-### To run *transferfrom* function:
+### To run *transfer_from* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -92,11 +92,11 @@ to_gates: u64 = 0u64;
 to_amount: u64 =  30u64;
 amount: u64 = 5u64;
 ```
-`leo run transferFrom`
+`leo run transfer_from`
 
 Console output.
 ```
- • Executing 'arc20_leo.aleo/transferfrom'...
+ • Executing 'arc20_leo.aleo/transfer_from'...
  • Executed 'transferfrom' (in 21740 ms)
 
 ➡️  Outputs
