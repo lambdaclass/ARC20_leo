@@ -190,7 +190,7 @@ function test_balance_of(owner_balance: Balance) -> bool {
 	// Test	
 	let test_balance_of_bool: bool = false;
 	if return_balance == 269u64{
-		test_balanceof_bool = true;
+		test_balance_of_bool = true;
 	}
 	
 	return test_balanceof_bool;
