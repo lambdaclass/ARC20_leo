@@ -20,14 +20,13 @@ balance_owner: Balance = Balance {
 };
 amount_remaining: u64 = 78u64;
 
-
 [total_supply]
 amount_supply: u64 = 1729u64;
 
 [test_total_supply]
 amount_supply: u64 = 1729u64;
 
-[balanceof]
+[balance_of]
 owner_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -35,7 +34,7 @@ owner_balance: Balance = Balance {
     _nonce: 0group,
 };
 
-[test_balanceof]
+[test_balance_of]
 owner_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -83,7 +82,6 @@ to_gates: u64 = 0u64;
 to_amount: u64 =  30u64;
 amount: u64 = 5u64;
 
-
 [transfer]
 to_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
@@ -124,7 +122,7 @@ is_dummmy: u64 = 0u64;
 is_dummmy: u64 = 0u64;
 
 [test_symbol]
-is_dummmy: u64 = 0u64
+is_dummmy: u64 = 0u64;
 
 [name]
 is_dummmy: u64 = 0u64;

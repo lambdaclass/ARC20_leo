@@ -18,7 +18,6 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
 	return response_approve;
 }
 
-
 @program
 function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
 	let response_approve:bool = false;
@@ -169,7 +168,7 @@ function test_transfer_from(from_balance: Balance, from:address, to_address: add
 }
 
 @program
-function balanceof(owner_balance: Balance) -> u64 {
+function balance_of(owner_balance: Balance) -> u64 {
 	let amount_balance: u64 = owner_balance.amount;
 	let minimun: u64 = 0u64;
 	let return_balance:u64 = 0u64;
@@ -180,7 +179,7 @@ function balanceof(owner_balance: Balance) -> u64 {
 }
 
 @program
-function test_balanceof(owner_balance: Balance) -> bool {
+function test_balance_of(owner_balance: Balance) -> bool {
 	let amount_balance: u64 = owner_balance.amount;
 	let minimun: u64 = 0u64;
 	let return_balance:u64 = 0u64;
@@ -189,12 +188,12 @@ function test_balanceof(owner_balance: Balance) -> bool {
 	}
 
 	// Test	
-	let test_balanceoff_bool: bool = false;
+	let test_balanceof_bool: bool = false;
 	if return_balance == 269u64{
-		test_balanceoff_bool = true;
+		test_balanceof_bool = true;
 	}
 	
-	return test_balanceoff_bool;
+	return test_balanceof_bool;
 }
 
 @program
@@ -297,6 +296,7 @@ function decimals(quantity_decimals: u64) -> u64 {
 
 @program
 // Return four letters 'A' 'L' 'E' 'O' in ascii mode.
+// The parameter `is_dummmy` only exists for sintax purpose.
 function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
 	let letter_A: u64 = 65u64;
 	let letter_L: u64 = 76u64;
@@ -313,6 +313,7 @@ function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
 
 @program
 // Return four letters 'L' 'E' 'O' in ascii mode.
+// The parameter `is_dummmy` only exists for sintax purpose.
 function symbol(is_dummmy: u64) -> (u64,u64,u64) {
 	let letter_L: u64 = 76u64;
 	let letter_E: u64 = 69u64;
@@ -327,7 +328,6 @@ function symbol(is_dummmy: u64) -> (u64,u64,u64) {
 
 @program
 // This function tests if the it is valid to return a quantity of decimals different from an specified number.
-// The parameter `is_dummmy` only exists for sintax purpose.
 function test_decimals(quantity_decimals: u64) -> bool {
 	let zero: u64 = 0u64;
 	let return_quantity_decimals: u64 = 0u64;
