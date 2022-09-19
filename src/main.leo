@@ -193,7 +193,7 @@ function test_balance_of(owner_balance: Balance) -> bool {
 		test_balance_of_bool = true;
 	}
 	
-	return test_balanceof_bool;
+	return test_balance_of_bool;
 }
 
 @program
