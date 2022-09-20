@@ -115,9 +115,6 @@ spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rr
 amount_desired: u64 = 64u64;
 
 // Optional functions section
-[name]
-is_dummmy: u64 = 0u64;
-
 [test_name]
 is_dummmy: u64 = 0u64;
 
@@ -125,6 +122,9 @@ is_dummmy: u64 = 0u64;
 is_dummmy: u64 = 0u64;
 
 [test_symbol]
+is_dummmy: u64 = 0u64;
+
+[name]
 is_dummmy: u64 = 0u64;
 
 [decimals]
