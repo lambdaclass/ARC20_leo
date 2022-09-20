@@ -39,7 +39,7 @@ function test_approve(owner: address, amount_owner: u64, spender: address, amoun
 // This function must returns uint256 remaining, but for 'test' the amount is a parameter.
 function allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> u64 {
     // return 1 if the amount is valid and 0 otherwise
-    let response:u64 = 0u64;    
+    let response:u64 = 0u64;
     //let amount_owner: u64 = balance_owner.amount;
     if amount_remaining < balance_owner.amount {
         response = amount_remaining;
@@ -50,12 +50,12 @@ function allowance(owner: address, spender: address, balance_owner: Balance, amo
 @program
 function test_allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> bool {
     // return 1 if the amount is valid and 0 otherwise
-    let response:u64 = 0u64;    
+    let response:u64 = 0u64;
     if amount_remaining < balance_owner.amount {
         response = amount_remaining;
     }
     
-    // Test    
+    // Test
     let test_allowance_bool: bool = false;
     let test_response:u64 = 78u64;
     if test_response == response {
@@ -66,7 +66,7 @@ function test_allowance(owner: address, spender: address, balance_owner: Balance
 }
 
 @program
-function transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> (Balance, address, u64, u64) {
+function transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64, amount: u64) -> (Balance, address, u64, u64) {
     let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
         owner: from,
@@ -80,7 +80,7 @@ function transfer_from(from_balance: Balance, from:address, to_address: address,
 }
 
 @program
-function test_transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64,  amount: u64) -> bool {
+function test_transfer_from(from_balance: Balance, from: address, to_address: address, to_gates: u64, to_amount: u64, amount: u64) -> bool {
     let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
         owner: from,
@@ -109,14 +109,14 @@ function test_transfer_from(from_balance: Balance, from:address, to_address: add
     };
 
     //remaining ( from );
-    let test_owner_from: bool = false;    
+    let test_owner_from: bool = false;
     let test_gates_from: bool = false;
     let test_amount_from: bool = false;
 
     //transferred ( to );
     let test_owner_to: bool = false;
     let test_gates_to: bool = false;
-    let test_amount_to: bool = false;    
+    let test_amount_to: bool = false;
     
     //remaining ( from ); 
     if test_remaining.owner == remaining.owner{
@@ -129,7 +129,7 @@ function test_transfer_from(from_balance: Balance, from:address, to_address: add
             test_amount_from = true;
             }
             
-    let test_remaining_final: bool = false;    
+    let test_remaining_final: bool = false;
     if test_owner_from == true{
         if test_gates_from == true{
             if test_amount_from == true{
@@ -148,7 +148,7 @@ function test_transfer_from(from_balance: Balance, from:address, to_address: add
     if  test_transferred.amount == transferred.amount{
             test_amount_to = true;
             }
-    let test_transferred_final: bool = false;        
+    let test_transferred_final: bool = false;
     if test_owner_to == true{
         if test_gates_to == true{
             if test_amount_to == true{
@@ -187,7 +187,7 @@ function test_balance_of(owner_balance: Balance) -> bool {
         return_balance = amount_balance;
     }
 
-    // Test    
+    // Test
     let test_balance_of_bool: bool = false;
     if return_balance == 269u64{
         test_balance_of_bool = true;
@@ -199,7 +199,7 @@ function test_balance_of(owner_balance: Balance) -> bool {
 @program
 function total_supply(amount_supply: u64) -> u64 {
     let zero: u64 = 0u64;
-    let return_supply:u64 = amount_supply;    
+    let return_supply:u64 = amount_supply;
     return_supply = return_supply + zero;
     return return_supply;
 }
@@ -207,7 +207,7 @@ function total_supply(amount_supply: u64) -> u64 {
 @program
 function test_total_supply(amount_supply: u64) -> bool {
     let zero: u64 = 0u64;
-    let return_supply:u64 = amount_supply;    
+    let return_supply:u64 = amount_supply;
     return_supply = return_supply + zero;
     
     // Test
@@ -226,7 +226,7 @@ function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
         gates: to_balance.gates,
         amount: increment_amount,
     };
-    return  transferred;
+    return transferred;
 }
 
 @program
@@ -248,7 +248,7 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
     // test_to);
     let test_owner_to: bool = false;
     let test_gates_to: bool = false;
-    let test_amount_to: bool = false;    
+    let test_amount_to: bool = false;
     
     if test_transferred.owner == transferred.owner{
             test_owner_to = true;
@@ -260,7 +260,7 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
             test_amount_to = true;
             }
 
-    let test_transferred_final: bool = false;        
+    let test_transferred_final: bool = false;
     if test_owner_to == true {
         if test_gates_to == true {
             if test_amount_to == true {
@@ -285,7 +285,7 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 
 @program
 function decimals(quantity_decimals: u64) -> u64 {
-// Decimals  Returns the number of decimals used to get its user representation.
+// Decimals Returns the number of decimals used to get its user representation.
 // For example, if decimals equals 2, a balance of 505 tokens should be displayed to a user as 5.05 (505 / 10 ** 2).
 //        Tokens usually opt for a value of 18,
     let zero: u64 = 0u64;
@@ -296,7 +296,7 @@ function decimals(quantity_decimals: u64) -> u64 {
 
 @program
 // Return four letters 'A' 'L' 'E' 'O' in ascii mode.
-// The parameter `is_dummmy` only exists for syntax purpose.
+// The parameter `is_dummmy` only exists for syntax purposes.
 function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
     let letter_A: u64 = 65u64;
     let letter_L: u64 = 76u64;
@@ -313,7 +313,7 @@ function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
 
 @program
 // Return four letters 'L' 'E' 'O' in ascii mode.
-// The parameter `is_dummmy` only exists for syntax purpose.
+// The parameter `is_dummmy` only exists for syntax purposes.
 function symbol(is_dummmy: u64) -> (u64,u64,u64) {
     let letter_L: u64 = 76u64;
     let letter_E: u64 = 69u64;
@@ -327,7 +327,7 @@ function symbol(is_dummmy: u64) -> (u64,u64,u64) {
 }
 
 @program
-// This function tests if the it is valid to return a quantity of decimals different from an specified number.
+// This function tests if it is valid to return a quantity of decimals different from a specified number.
 function test_decimals(quantity_decimals: u64) -> bool {
     let zero: u64 = 0u64;
     let return_quantity_decimals: u64 = 0u64;
@@ -342,7 +342,7 @@ function test_decimals(quantity_decimals: u64) -> bool {
 
 @program
 // This function tests if it is valid to return a Name different from "ALEO".
-// The parameter `is_dummmy` only exists for syntax purpose.
+// The parameter `is_dummmy` only exists for syntax purposes.
 function test_name(is_dummmy: u64) -> bool {
     let letter_A: u64 = 65u64;
     let letter_L: u64 = 76u64;
@@ -364,18 +364,18 @@ function test_name(is_dummmy: u64) -> bool {
     if test_letter_A == letter_A {
         if test_letter_L == letter_L {
             if test_letter_E == letter_E {
-                if test_letter_O == letter_O {    
+                if test_letter_O == letter_O {
                     test_name_bool = true;
                 }
             }
         }
     }
-    return test_name_bool;    
+    return test_name_bool;
 }
 
 @program
 // This function tests if it is valid to return a Symbol different from "LEO".
-// The parameter `is_dummmy` only exists for syntax purpose.
+// The parameter `is_dummmy` only exists for syntax purposes.
 function test_symbol(is_dummmy: u64) -> bool {
     let letter_L: u64 = 76u64;
     let letter_E: u64 = 69u64;
@@ -394,7 +394,7 @@ function test_symbol(is_dummmy: u64) -> bool {
     let test_symbol_bool: bool = false;
     if test_letter_L == letter_L {
         if test_letter_E == letter_E {
-            if test_letter_O == letter_O {    
+            if test_letter_O == letter_O {
                 test_symbol_bool = true;
             }
         }

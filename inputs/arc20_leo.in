@@ -1,4 +1,4 @@
-// Mandatory function section
+// Mandatory functions section
 [allowance]
 owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
@@ -66,9 +66,8 @@ from_balance: Balance = Balance {
 from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 to_gates: u64 = 0u64;
-to_amount: u64 =  30u64;
+to_amount: u64 = 30u64;
 amount: u64 = 5u64;
-
 
 [test_transfer_from]
 from_balance: Balance = Balance {
@@ -80,7 +79,7 @@ from_balance: Balance = Balance {
 from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 to_gates: u64 = 0u64;
-to_amount: u64 =  30u64;
+to_amount: u64 = 30u64;
 amount: u64 = 5u64;
 
 [transfer]
@@ -115,7 +114,10 @@ amount_owner: u64 = 164u64;
 spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 amount_desired: u64 = 64u64;
 
-// Optional function section
+// Optional functions section
+[name]
+is_dummmy: u64 = 0u64;
+
 [test_name]
 is_dummmy: u64 = 0u64;
 
@@ -123,9 +125,6 @@ is_dummmy: u64 = 0u64;
 is_dummmy: u64 = 0u64;
 
 [test_symbol]
-is_dummmy: u64 = 0u64;
-
-[name]
 is_dummmy: u64 = 0u64;
 
 [decimals]
