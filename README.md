@@ -1,13 +1,13 @@
 # ARC20_leo
 
 ##  About The Project
-Implement the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
+Implementation of the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
-They are: **BalanceOf**, **TotalSupply**, **Approve**, **TransferFrom**, **Transfer**, **Allowance**.
+They are: **balance_of**, **total_supply**, **approve**, **transfer_from**, **transfer**, and **allowance**.
 
 ## Usage
 
-### To run *BalanceOf* function:
+### To run *balance_of* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -20,11 +20,11 @@ owner_balance: Balance = Balance {
 };
 ```
 
-`leo run BalanceOf`
+`leo run balance_of`
 
-Console output.
+Console output
 ```
- • Executing 'arc20_leo.aleo/balanceof'...
+ • Executing 'arc20_leo.aleo/balance_of'...
  • Executed 'balanceof' (in 11642 ms)
 
 ➡️  Output
@@ -52,7 +52,7 @@ Console output.
  • 1729u64
 ```
 
-### To run *Approve* function:
+### To run *approve* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -63,7 +63,7 @@ spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rr
 amount_desired: u64 = 64u64;
 ```
 
-`leo run Approve`
+`leo run approve`
 
 Console output.
 ```
@@ -75,7 +75,7 @@ Console output.
  • true
 ```
 
-### To run *TransferFrom* function:
+### To run *transfer_from* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -92,11 +92,11 @@ to_gates: u64 = 0u64;
 to_amount: u64 =  30u64;
 amount: u64 = 5u64;
 ```
-`leo run TransferFrom`
+`leo run transfer_from`
 
 Console output.
 ```
- • Executing 'arc20_leo.aleo/transferfrom'...
+ • Executing 'arc20_leo.aleo/transfer_from'...
  • Executed 'transferfrom' (in 21740 ms)
 
 ➡️  Outputs
@@ -112,7 +112,7 @@ Console output.
  • 0u64
 ```
 
-### To run *Transfer* function:
+### To run *transfer* function:
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
@@ -127,7 +127,7 @@ to: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 amount: u64 = 5u64;
 ```
 
-`leo run Transfer`
+`leo run transfer`
 
 Console output.
 ```
@@ -144,7 +144,7 @@ Console output.
 }
 ```
 
-### To run *Allowance* function:
+### To run *allowance* function:
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
 [allowance]
@@ -160,7 +160,7 @@ amount_remaining: u64 = 78u64;
 
 ```
 
-`leo run Allowance`
+`leo run allowance`
 
 Console output.
 ```
@@ -170,6 +170,71 @@ Console output.
 ➡️  Output
 
  • 78u64
+```
+
+##  Optional functions
+ARC20 includes 3 optional rules. They are: **decimals**, **name**, and **symbol**.
+
+### To run *decimals* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[decimals]
+quantity_decimals: u64 = 8u64;
+```
+
+`leo run decimals`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/decimals'...
+ • Executed 'decimals' (in 4244 ms)
+
+➡️  Output
+
+ • 8u64
+```
+
+### To run *name* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[name]
+is_dummmy: u64 = 0u64;
+```
+
+`leo run name`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/name'...
+ • Executed 'name' (in 6431 ms)
+
+➡️  Outputs
+
+ • 65u64
+ • 76u64
+ • 69u64
+ • 79u64
+```
+
+### To run *symbol* function:
+Input file ARC20_leo/inputs/arc20_leo.in
+```
+[symbol]
+is_dummmy: u64 = 0u64;
+```
+
+`leo run symbol`
+
+Console output.
+```
+ • Executing 'arc20_leo.aleo/symbol'...
+ • Executed 'symbol' (in 6450 ms)
+
+➡️  Outputs
+
+ • 76u64
+ • 69u64
+ • 79u64
 ```
 
 ### To run **Test** functions:
