@@ -236,3 +236,8 @@ Console output.
  • 69u64
  • 79u64
 ```
+
+### To run **Test** functions:
+In every ARC20 function the input values are declared in ```\input\arc20_leo.in```
+Each Test function uses the algorithm of the original function and compares its output with the values coded into the test function.
+In case the comparison is successful, the Test function will return True in a boolean variable.

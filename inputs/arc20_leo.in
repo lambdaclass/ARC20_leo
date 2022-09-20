@@ -20,14 +20,13 @@ balance_owner: Balance = Balance {
 };
 amount_remaining: u64 = 78u64;
 
-
 [total_supply]
 amount_supply: u64 = 1729u64;
 
 [test_total_supply]
 amount_supply: u64 = 1729u64;
 
-[balanceof]
+[balance_of]
 owner_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -35,7 +34,7 @@ owner_balance: Balance = Balance {
     _nonce: 0group,
 };
 
-[test_balanceof]
+[test_balance_of]
 owner_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -55,7 +54,7 @@ balance: Balance = Balance {
     _nonce: 0group,
 };
 
-[transferfrom]
+[transfer_from]
 from_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -70,7 +69,7 @@ to_amount: u64 =  30u64;
 amount: u64 = 5u64;
 
 
-[test_transferfrom]
+[test_transfer_from]
 from_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -82,7 +81,6 @@ to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn
 to_gates: u64 = 0u64;
 to_amount: u64 =  30u64;
 amount: u64 = 5u64;
-
 
 [transfer]
 to_balance: Balance = Balance {
@@ -115,3 +113,22 @@ owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7
 amount_owner: u64 = 164u64;
 spender: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 amount_desired: u64 = 64u64;
+
+// Optional function section
+[test_name]
+is_dummmy: u64 = 0u64;
+
+[symbol]
+is_dummmy: u64 = 0u64;
+
+[test_symbol]
+is_dummmy: u64 = 0u64;
+
+[name]
+is_dummmy: u64 = 0u64;
+
+[decimals]
+quantity_decimals: u64 = 8u64;
+
+[test_decimals]
+quantity_decimals: u64 = 8u64;
