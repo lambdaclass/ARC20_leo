@@ -1,6 +1,6 @@
 # ARC20_leo
 
-##  About The Project
+## About The Project
 Implementation of the 6 mandatory rules in Leo Programming Language so that they can be invoked in a Smart contract.
 
 They are: **balance_of**, **total_supply**, **approve**, **transfer_from**, **transfer**, and **allowance**.
@@ -89,7 +89,7 @@ from_balance: Balance = Balance {
 from: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 to_address: address = aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau;
 to_gates: u64 = 0u64;
-to_amount: u64 =  30u64;
+to_amount: u64 = 30u64;
 amount: u64 = 5u64;
 ```
 `leo run transfer_from`
@@ -102,10 +102,10 @@ Console output.
 ➡️  Outputs
 
  • {
-  owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
-  gates: 0u64.private,
-  amount: 20u64.private,
-  _nonce: 6431287615986696097612324621785026814136142669749924915411966793544219414836group.public
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
+    gates: 0u64.private,
+    amount: 20u64.private,
+    _nonce: 6431287615986696097612324621785026814136142669749924915411966793544219414836group.public
 }
  • aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau
  • 35u64
@@ -137,10 +137,10 @@ Console output.
 ➡️  Output
 
  • {
-  owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
-  gates: 0u64.private,
-  amount: 30u64.private,
-  _nonce: 5223267181059685515422878880245687591758320347768724919987298470390181053809group.public
+    owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7.private,
+    gates: 0u64.private,
+    amount: 30u64.private,
+    _nonce: 5223267181059685515422878880245687591758320347768724919987298470390181053809group.public
 }
 ```
 
@@ -172,7 +172,7 @@ Console output.
  • 78u64
 ```
 
-##  Optional functions
+## Optional functions
 ARC20 includes 3 optional rules. They are: **decimals**, **name**, and **symbol**.
 
 ### To run *decimals* function:
