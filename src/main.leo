@@ -296,7 +296,7 @@ function decimals(quantity_decimals: u64) -> u64 {
 
 @program
 // Return four letters 'A' 'L' 'E' 'O' in ascii mode.
-// The parameter `is_dummmy` only exists for sintax purpose.
+// The parameter `is_dummmy` only exists for syntax purpose.
 function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
 	let letter_A: u64 = 65u64;
 	let letter_L: u64 = 76u64;
@@ -313,7 +313,7 @@ function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
 
 @program
 // Return four letters 'L' 'E' 'O' in ascii mode.
-// The parameter `is_dummmy` only exists for sintax purpose.
+// The parameter `is_dummmy` only exists for syntax purpose.
 function symbol(is_dummmy: u64) -> (u64,u64,u64) {
 	let letter_L: u64 = 76u64;
 	let letter_E: u64 = 69u64;
@@ -342,7 +342,7 @@ function test_decimals(quantity_decimals: u64) -> bool {
 
 @program
 //This function tests if it is valid to return a Name different from "ALEO".
-// The parameter `is_dummmy` only exists for sintax purpose.
+// The parameter `is_dummmy` only exists for syntax purpose.
 function test_name(is_dummmy: u64) -> bool {
 	let letter_A: u64 = 65u64;
 	let letter_L: u64 = 76u64;
@@ -375,7 +375,7 @@ function test_name(is_dummmy: u64) -> bool {
 
 @program
 //This function tests if it is valid to return a Symbol different from "LEO".
-// The parameter `is_dummmy` only exists for sintax purpose.
+// The parameter `is_dummmy` only exists for syntax purpose.
 function test_symbol(is_dummmy: u64) -> bool {
 	let letter_L: u64 = 76u64;
 	let letter_E: u64 = 69u64;
