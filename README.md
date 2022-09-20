@@ -11,7 +11,7 @@ They are: **balance_of**, **total_supply**, **approve**, **transfer_from**, **tr
 
 Input file ARC20_leo/inputs/arc20_leo.in
 ```
-[balanceof]
+[balance_of]
 owner_balance: Balance = Balance {
     owner: aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7,
     gates: 0u64,
@@ -25,7 +25,7 @@ owner_balance: Balance = Balance {
 Console output
 ```
  • Executing 'arc20_leo.aleo/balance_of'...
- • Executed 'balanceof' (in 11642 ms)
+ • Executed 'balance_of' (in 11642 ms)
 
 ➡️  Output
 
@@ -97,7 +97,7 @@ amount: u64 = 5u64;
 Console output.
 ```
  • Executing 'arc20_leo.aleo/transfer_from'...
- • Executed 'transferfrom' (in 21740 ms)
+ • Executed 'transfer_from' (in 21740 ms)
 
 ➡️  Outputs
 
