@@ -43,6 +43,7 @@ owner_balance: Balance = Balance {
     _nonce: 0group,
 };
 
+
 [mint]
 owner: address = aleo1ht2a9q0gsd38j0se4t9lsfulxgqrens2vgzgry3pkvs93xrrzu8s892zn7;
 amount: u64 = 100u64;
@@ -54,6 +55,7 @@ balance: Balance = Balance {
     amount: 0u64,
     _nonce: 0group,
 };
+
 
 [transfer_from]
 from_balance: Balance = Balance {
