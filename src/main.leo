@@ -1,16 +1,23 @@
-// ARC20.
+program arc20_leo.aleo {
 
-record Balance {
+    record Balance {
     // The Aleo balance.
     owner: address,
     gates: u64,
     amount: u64,
 }
 
-// Mandatory Functions
+//New Record -> Mint
+    record Mint {
+        owner: address,
+        gates: u64,
+        amount: u64,
+        totalsupply_amount: u64,
+    }
+// Mandatory transitions
 
-@program
-function approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
+
+transition approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
     let response_approve:bool = false;
     if amount_owner >= amount_desired {
         response_approve = true;
@@ -18,7 +25,7 @@ function approve(owner: address, amount_owner: u64, spender: address, amount_des
     return response_approve;
 }
 
-@program
+
 function test_approve(owner: address, amount_owner: u64, spender: address, amount_desired : u64 )-> bool {
     let response_approve:bool = false;
     if amount_owner >= amount_desired {
@@ -34,10 +41,10 @@ function test_approve(owner: address, amount_owner: u64, spender: address, amoun
     return test_bool_approve;
 }
 
-@program
-// The allowance() function returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
-// This function must returns uint256 remaining, but for 'test' the amount is a parameter.
-function allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> u64 {
+
+// The allowance() transition returns the token amount remaining, which the spender is currently allowed to withdraw from the owner's account.
+// This transition must returns uint256 remaining, but for 'test' the amount is a parameter.
+transition allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> u64 {
     // return 1 if the amount is valid and 0 otherwise
     let response:u64 = 0u64;
     //let amount_owner: u64 = balance_owner.amount;
@@ -47,7 +54,7 @@ function allowance(owner: address, spender: address, balance_owner: Balance, amo
     return response;
 }
 
-@program
+
 function test_allowance(owner: address, spender: address, balance_owner: Balance, amount_remaining : u64 )-> bool {
     // return 1 if the amount is valid and 0 otherwise
     let response:u64 = 0u64;
@@ -65,21 +72,21 @@ function test_allowance(owner: address, spender: address, balance_owner: Balance
 
 }
 
-@program
-function transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64, amount: u64) -> (Balance, address, u64, u64) {
+
+transition transfer_from(from_balance: Balance, from:address, to_address: address, to_gates: u64, to_amount: u64, amount: u64) -> (Balance, address, u64, u64) {
     let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
         owner: from,
         gates: from_balance.gates,
         amount: difference,
     };
-    let increment: u64 = to_amount + amount;
+    let increment1: u64 = to_amount + amount;
 
     // Output the sender's change record and the receiver's record.
-    return (remaining, to_address, increment, to_gates );
+    return (remaining, to_address, increment1, to_gates );
 }
 
-@program
+
 function test_transfer_from(from_balance: Balance, from: address, to_address: address, to_gates: u64, to_amount: u64, amount: u64) -> bool {
     let difference: u64 = from_balance.amount - amount;
     let remaining: Balance = Balance {
@@ -87,13 +94,13 @@ function test_transfer_from(from_balance: Balance, from: address, to_address: ad
         gates: from_balance.gates,
         amount: difference,
     };
-    let increment: u64 = to_amount + amount;
+    let increment1: u64 = to_amount + amount;
     
     // Test
     let transferred: Balance = Balance {
         owner: to_address,
         gates: to_gates,
-        amount: increment,
+        amount: increment1,
     };
 
     let test_remaining: Balance = Balance {
@@ -167,8 +174,8 @@ function test_transfer_from(from_balance: Balance, from: address, to_address: ad
     return test_final;
 }
 
-@program
-function balance_of(owner_balance: Balance) -> u64 {
+
+transition balance_of(owner_balance: Balance) -> u64 {
     let amount_balance: u64 = owner_balance.amount;
     let minimun: u64 = 0u64;
     let return_balance:u64 = 0u64;
@@ -178,7 +185,7 @@ function balance_of(owner_balance: Balance) -> u64 {
     return return_balance;
 }
 
-@program
+
 function test_balance_of(owner_balance: Balance) -> bool {
     let amount_balance: u64 = owner_balance.amount;
     let minimun: u64 = 0u64;
@@ -196,15 +203,36 @@ function test_balance_of(owner_balance: Balance) -> bool {
     return test_balance_of_bool;
 }
 
-@program
-function total_supply(amount_supply: u64) -> u64 {
+
+transition total_supply(amount_supply: u64) -> u64 {
     let zero: u64 = 0u64;
     let return_supply:u64 = amount_supply;
     return_supply = return_supply + zero;
     return return_supply;
 }
 
-@program
+
+//Updated Feature -> Mint 
+transition mint(owner: address, amount: u64, totalsupply_amount: u64, gates: u64, balance: Balance) -> (Mint, Balance) {
+    let difference: u64 = totalsupply_amount - amount;
+
+    let remaining : Mint = Mint {
+        owner: balance.owner,
+        amount: balance.amount,
+        totalsupply_amount: difference,
+        gates: balance.gates
+    };
+
+    let transferred : Balance = Balance {
+        owner: owner,
+        gates: 0u64,
+        amount: amount
+    };
+
+    return (remaining, transferred);
+}
+
+
 function test_total_supply(amount_supply: u64) -> bool {
     let zero: u64 = 0u64;
     let return_supply:u64 = amount_supply;
@@ -218,8 +246,8 @@ function test_total_supply(amount_supply: u64) -> bool {
     return test_total_supply_bool;
 }
 
-@program
-function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
+
+transition transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
     let increment_amount: u64 = to_balance.amount + amount;
     let transferred: Balance = Balance {
         owner: to,
@@ -229,7 +257,7 @@ function transfer(to_balance: Balance, to: address, amount: u64) -> Balance {
     return transferred;
 }
 
-@program
+
 function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
     let increment_amount: u64 = to_balance.amount + amount;
     let transferred: Balance = Balance {
@@ -272,7 +300,7 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
     return test_transferred_final;
 }
 
-// Optional functions
+// Optional transitions
 
 // Name      Returns the name of the token.
 // Symbol    Returns the symbol of the token, usually a shorter version of the name.
@@ -283,8 +311,8 @@ function test_transfer(to_balance: Balance, to: address, amount: u64) -> bool {
 //    B will check how many tokens A gave him permission to use by calling allowance(address(A), address(B))
 //    B will send to his account these tokens by calling transferFrom(address(A), address(B), 100)
 
-@program
-function decimals(quantity_decimals: u64) -> u64 {
+
+transition decimals(quantity_decimals: u64) -> u64 {
 // Decimals Returns the number of decimals used to get its user representation.
 // For example, if decimals equals 2, a balance of 505 tokens should be displayed to a user as 5.05 (505 / 10 ** 2).
 //        Tokens usually opt for a value of 18,
@@ -294,10 +322,10 @@ function decimals(quantity_decimals: u64) -> u64 {
     return return_quantity_decimals;
 }
 
-@program
+
 // Return four letters 'A' 'L' 'E' 'O' in ascii mode.
 // The parameter `is_dummmy` only exists for syntax purposes.
-function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
+transition name(is_dummmy: u64) -> (u64,u64,u64,u64) {
     let letter_A: u64 = 65u64;
     let letter_L: u64 = 76u64;
     let letter_E: u64 = 69u64;
@@ -311,10 +339,10 @@ function name(is_dummmy: u64) -> (u64,u64,u64,u64) {
     return (letter_A, letter_L, letter_E, letter_O) ;
 }
 
-@program
+
 // Return four letters 'L' 'E' 'O' in ascii mode.
 // The parameter `is_dummmy` only exists for syntax purposes.
-function symbol(is_dummmy: u64) -> (u64,u64,u64) {
+transition symbol(is_dummmy: u64) -> (u64,u64,u64) {
     let letter_L: u64 = 76u64;
     let letter_E: u64 = 69u64;
     let letter_O: u64 = 79u64;
@@ -326,8 +354,8 @@ function symbol(is_dummmy: u64) -> (u64,u64,u64) {
     return (letter_L, letter_E, letter_O);
 }
 
-@program
-// This function tests if it is valid to return a quantity of decimals different from a specified number.
+
+// This transition tests if it is valid to return a quantity of decimals different from a specified number.
 function test_decimals(quantity_decimals: u64) -> bool {
     let zero: u64 = 0u64;
     let return_quantity_decimals: u64 = 0u64;
@@ -340,8 +368,8 @@ function test_decimals(quantity_decimals: u64) -> bool {
     return test_decimals_bool;
 }
 
-@program
-// This function tests if it is valid to return a Name different from "ALEO".
+
+// This transition tests if it is valid to return a Name different from "ALEO".
 // The parameter `is_dummmy` only exists for syntax purposes.
 function test_name(is_dummmy: u64) -> bool {
     let letter_A: u64 = 65u64;
@@ -373,8 +401,8 @@ function test_name(is_dummmy: u64) -> bool {
     return test_name_bool;
 }
 
-@program
-// This function tests if it is valid to return a Symbol different from "LEO".
+
+// This transition tests if it is valid to return a Symbol different from "LEO".
 // The parameter `is_dummmy` only exists for syntax purposes.
 function test_symbol(is_dummmy: u64) -> bool {
     let letter_L: u64 = 76u64;
@@ -400,4 +428,6 @@ function test_symbol(is_dummmy: u64) -> bool {
         }
     }
     return test_symbol_bool;
+}
+
 }
